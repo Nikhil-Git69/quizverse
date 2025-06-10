@@ -9,9 +9,13 @@ A basic QuizApp with multi questions-asnwers, Score tracking, And a result Scree
 ## Key Features
 
 User Validation Using Controllers,
+<br>
 Float_toast for pop messages,
+<br>
 Score tracking and result screen.
-did try to ShuffleAnswers(forgot about it), will see to it at later date.
+<br>
+Shuffled Answers/ Answers position change every round (Updated).
+<br>
 
 ## Demo 
 
