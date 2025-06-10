@@ -3,9 +3,6 @@
 A basic QuizApp with multi questions-asnwers, Score tracking, And a result Screen .
 
 
-
-
-
 ## Key Features
 
 User Validation Using Controllers,
@@ -17,7 +14,20 @@ Score tracking and result screen.
 Shuffled Answers/ Answers position change every round (Updated).
 <br>
 
+
+## In-Progress
+**Splash Screen**
+
+## * *Future Features?* *
+* *Timer* *
+<br>
+* *Quiz Category* *
+
+
 ## Demo 
 
 [Screen Recording](asts/Running%20Devices%20-%20quizverse%202025-05-29%2007-16-00.mp4)
+
+
+
 
