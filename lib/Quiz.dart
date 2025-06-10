@@ -95,7 +95,7 @@ class _QuizState extends State<Quiz> {
             Center(
 
               child: Container(
-                color: Colors.black,
+
                 height: 75,
                 child: Text(currentQuestion ,
                   textAlign: TextAlign.center,
