@@ -18,16 +18,18 @@ Shuffled Answers/ Answers position change every round (Updated).
 ## In-Progress
 **Splash Screen**
 
-## * *Future Features?* *
-* *Timer* *
+## _Future Features?_
+_Timer_
 <br>
-* *Quiz Category* *
+_Quiz Category_
 
 
 ## Demo 
 
 [Screen Recording](asts/Running%20Devices%20-%20quizverse%202025-05-29%2007-16-00.mp4)
 
+
+***`Nikhil***
 
 
 
