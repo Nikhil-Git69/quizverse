@@ -33,73 +33,76 @@ TextEditingController UserNameController = TextEditingController();
       child: Scaffold(
 
         backgroundColor: Colors.white,
-        body: Stack(
-          children: [
-
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 150),
-              child: Image.asset("asts/QuizVerseLogo.png"),
-            ),
-
-            Center(
-              child: Container(
-                  alignment: Alignment.bottomCenter,
-                margin: EdgeInsets.only(bottom: 250),
-                width: 150,
-                child: TextFormField(
-                  controller: UserNameController,
-                  decoration: InputDecoration(
-
-                  contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                  hintText: 'Username',
-                  isDense: false,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15)),
-
-                ),//byXp
-
-             style: TextStyle(
-               fontSize: 15,
-               color: Color(0xFF2D4C8C),
-             ),
-                  inputFormatters: [LengthLimitingTextInputFormatter(16),
-
-                  ],
-
-                ),
-
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+          
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 50),
+                child: Image.asset("asts/QuizVerseLogo.png"),
               ),
-            ),
+          
+              Center(
+                child: Container(
+                    alignment: Alignment.bottomCenter,
+                  margin: EdgeInsets.only(bottom: 100, top: 10),
+                  width: 150,
+                  child: TextFormField(
+                    keyboardType: TextInputType.name,
+                    controller: UserNameController,
+                    decoration: InputDecoration(
 
-            Container(
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.only(bottom: 70),
-              child: OutlinedButton.icon(onPressed: ()
-              {
-               if  (Validation()) {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Quiz(UserName: UserNameController.text),
-                  ));
-              }
-              },
-
-                icon: Icon(Icons.arrow_right_alt, size: 30,),
-
-                  label:  Text('Start Quiz',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                      color:Color(0xFF2D4C8C),
-                  ),),  //byEr
-
+                    contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                    hintText: 'Username',
+                    isDense: false,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)),
+          
+                  ),//byXp
+          
+               style: TextStyle(
+                 fontSize: 15,
+                 color: Color(0xFF2D4C8C),
+               ),
+                    inputFormatters: [LengthLimitingTextInputFormatter(16),
+          
+                    ],
+          
                   ),
-
-
-
-
-            ),
-
-          ],
+          
+                ),
+              ),
+          
+              Container(
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.only(top: 30),
+                child: OutlinedButton.icon(onPressed: ()
+                {
+                 if  (Validation()) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Quiz(UserName: UserNameController.text),
+                    ));
+                }
+                },
+          
+                  icon: Icon(Icons.arrow_right_alt, size: 30,),
+          
+                    label:  Text('Start Quiz',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                        color:Color(0xFF2D4C8C),
+                    ),),  //byEr
+          
+                    ),
+          
+          
+          
+          
+              ),
+          
+            ],
+          ),
         ),
 
       ),

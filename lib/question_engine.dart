@@ -92,7 +92,10 @@ int MaxScore= 0;
      return QuestionList.length  * 10;
    }
 
-
+List<String> getShuffledAnswers()
+{
+  return QuestionList[questionNumber].getShuffledAnswers();
+}
 
 
 }

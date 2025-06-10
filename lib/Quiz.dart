@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizverse/ResultScreen.dart';
 import 'question_engine.dart';
+import 'package:quizverse/Question.dart';
 
 
 class Quiz extends StatefulWidget {
@@ -21,6 +22,16 @@ class _QuizState extends State<Quiz> {
 
 
 
+  late List<String> shuffledAnswers;
+
+  @override
+  void initState() {
+    super.initState();
+    shuffledAnswers = questionEngine.getShuffledAnswers();
+
+  }
+
+
   String currentQuestion = '';
    int score = 0;
 
@@ -34,33 +45,11 @@ class _QuizState extends State<Quiz> {
     }
 
 
-    //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-    //BEFORE RESULT SCREEN
-    // setState(() {
-    //   if (!questionEngine.didFinishQuiz()){
-    //     questionEngine.nextQuestion();
-    //   }
-      // else
-      //   {
-      //     Navigator.pop(context);
-      //   }
-
-    // });
-
-    // void Onreset() {
-    //   questionEngine.questionNumber = 0;
-    //   Navigator.pop(context);
-    //
-    // }
-   //vvvvvvvvvvvvvvvvvvvvvvvvvvvv
-    //SKIPSSSS FROM Second LAST QUESTION TO RESULT
-    //^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
 
     if (!questionEngine.didFinishQuiz()) {
       setState(() {
         questionEngine.nextQuestion();
+        shuffledAnswers = questionEngine.getShuffledAnswers();
       });
     } else {
 
@@ -78,7 +67,9 @@ class _QuizState extends State<Quiz> {
 
     currentQuestion = questionEngine.getQuestionTextForCurrentQuestion();
 
-    List<String> answers = questionEngine.getAnswers();
+    List<String> answers = shuffledAnswers;
+
+
 
 
     return  SafeArea(
@@ -103,30 +94,40 @@ class _QuizState extends State<Quiz> {
             SizedBox(height: 150,),
             Center(
 
-              child: Text(currentQuestion ,
-                style: TextStyle(
-                  color: Color(0xFF2D4C8C),
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+              child: Container(
+                color: Colors.black,
+                height: 75,
+                child: Text(currentQuestion ,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFF2D4C8C),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
 
-              ),),
+                ),),
+              ),
             ),
-            SizedBox(height: 25,),
+            SizedBox(height: 0,),
 
               ...answers.map((a) {
                 return Padding(
 
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
                   child: OutlinedButton(
 
                     onPressed: () => _Answercontrol(a),
 
-                    child: Text(
-                      a,
-                      style: const TextStyle(
-                        color: Color(0xFF2D4C8C),
-                        fontSize: 20,
+                    child: Container(
 
+                      width: double.infinity,
+                      child: Text(
+                        a,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Color(0xFF2D4C8C),
+                          fontSize: 20,
+
+                        ),
                       ),
                     ),
                   ),
